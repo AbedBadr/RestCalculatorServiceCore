@@ -8,19 +8,25 @@ namespace RestCalculatorConsumer
 {
     class Program
     {
+        public static string CalculatorUri = "https://localhost:44301/api/calculator/";
+        //public static string CalculatorUri = "https://";
         static void Main(string[] args)
         {
             string addsum = AsyncAdd("Add",new Data(5, 5)).Result;
             Console.WriteLine(addsum);
 
             Console.ReadKey();
+
+            // Michael eksempel
+            Data data = new Data(7, 7);
+            string addStr = AsyncAdd(CalculatorUri, data).Result;
         }
 
         public static async Task<string> AsyncAdd(string urlext, Data data)
         {
             using (HttpClient client = new HttpClient())
             {
-                string CalculatorUri = "https://localhost:44301/api/calculator/";
+                //string CalculatorUri = "https://localhost:44301/api/calculator/";
                 Console.WriteLine("Data " + data);
 
                 var jsonString = JsonConvert.SerializeObject(data);
