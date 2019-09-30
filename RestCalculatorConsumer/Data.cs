@@ -19,5 +19,10 @@ namespace RestCalculatorConsumer
         {
             
         }
+
+        public override string ToString()
+        {
+            return $"{nameof(A)}: {A}, {nameof(B)}: {B}";
+        }
     }
 }
