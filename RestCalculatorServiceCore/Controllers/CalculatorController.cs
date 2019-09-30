@@ -67,9 +67,14 @@ namespace RestCalculatorServiceCore.Controllers
         
         // POST: api/calculator
         [HttpPost("div", Name = "div")]
-        public int Div([FromBody] Data data)
+        public double Div([FromBody] Data data)
         {
-            return data.A / data.B;
+            if (data.B != 0)
+            {
+                return (1.0 * data.A) / data.B;
+            }
+            else throw new DivideByZeroException("Division by zero");
+            //return data.A / data.B;
         }
     }
 }
