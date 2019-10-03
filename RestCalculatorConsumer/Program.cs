@@ -18,8 +18,8 @@ namespace RestCalculatorConsumer
             Console.ReadKey();
 
             // Michael eksempel
-            Data data = new Data(7, 7);
-            string addStr = AsyncAdd(CalculatorUri, data).Result;
+            //Data data = new Data(7, 7);
+            //string addStr = AsyncAdd(CalculatorUri, data).Result;
         }
 
         public static async Task<string> AsyncAdd(string urlext, Data data)
